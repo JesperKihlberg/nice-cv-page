@@ -3,7 +3,7 @@ import React from "react";
 
 const ComponentOverviewPage: React.FC = () => {
   const theme = useTheme();
-  console.log(JSON.stringify(theme));
+  // console.log(JSON.stringify(theme));
   return (
     <>
       <Box>
