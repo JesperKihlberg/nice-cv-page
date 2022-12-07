@@ -3,21 +3,36 @@ import { createTheme } from "@material-ui/core";
 declare module "@material-ui/core/styles" {
   interface Theme {
     navigationPanelWidth: number;
+    topBarHeight: number;
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
     navigationPanelWidth?: number;
+    topBarHeight?: number;
   }
 }
 
 export const theme = createTheme({
-  navigationPanelWidth: 150,
+  navigationPanelWidth: 200,
+  topBarHeight: 80,
+
   palette: {
+    type: "dark",
     primary: {
-      main: "#0378d5",
+      main: "#7F9C96",
+    },
+    secondary: {
+      main: "#AB2346",
+    },
+    divider: "#6EA130",
+    background: {
+      default: "#242325",
+      paper: "#4D7C8A",
     },
   },
   typography: {
+    fontFamily: "Poppins",
+
     // fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
     // // Document title
     // h1: {

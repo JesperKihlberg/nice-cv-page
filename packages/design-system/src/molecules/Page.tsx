@@ -9,6 +9,7 @@ interface PageProps {
 
 const useStyles = makeStyles((theme) => ({
   pageRoot: {
+    paddingTop: theme.topBarHeight,
     paddingLeft: theme.navigationPanelWidth,
     width: "100vw",
     height: "100vh",

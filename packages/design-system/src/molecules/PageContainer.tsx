@@ -1,10 +1,14 @@
 import React, { useEffect, WheelEventHandler } from "react";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+type NavigationItemCreator = (ids: string[], currentId: string, onSelectId: (id: string) => void) => React.ReactNode;
 
 interface PageContainerProps {
   children: React.ReactNode;
-  navigationItems?: ((ids: string[], currentId: string, onSelectId: (id: string) => void) => React.ReactNode)[] | null;
+  onSelectedIdChange?: (id: string) => void;
+  navigationItems?: NavigationItemCreator[] | null;
+  selectedId?: string;
 }
-import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
   pageContainerRoot: {
@@ -14,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PageContainer: React.FC<PageContainerProps> = ({ children, navigationItems }) => {
+const PageContainer: React.FC<PageContainerProps> = ({ children, navigationItems, onSelectedIdChange, selectedId }) => {
   const containerId = "page-container";
   const [ids, setIds] = React.useState<string[]>([]);
   const [currentIndex, _setCurrentIndex] = React.useState<number>(0);
@@ -56,6 +60,15 @@ const PageContainer: React.FC<PageContainerProps> = ({ children, navigationItems
   };
 
   useEffect(() => {
+    if (selectedId) {
+      const index = ids.indexOf(selectedId);
+      if (index >= 0) {
+        setCurrentIndex(index);
+      }
+    }
+  }, [selectedId, ids]);
+
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -84,6 +97,7 @@ const PageContainer: React.FC<PageContainerProps> = ({ children, navigationItems
           behavior: "smooth",
           top: currentIndex * window.innerHeight,
         });
+        onSelectedIdChange?.(ids[currentIndex]);
       }
     }
   }, [currentIndex]);

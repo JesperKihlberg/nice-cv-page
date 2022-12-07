@@ -5,3 +5,7 @@ export { default as HighlightedText } from "./highlighted-text/HighlightedText";
 export { Button } from "@material-ui/core";
 export { Box } from "@material-ui/core";
 export { Avatar } from "@material-ui/core";
+export { TimelineDot } from "@material-ui/lab";
+export { IconButton } from "@material-ui/core";
+export { AppBar } from "@material-ui/core";
+export { Toolbar } from "@material-ui/core";

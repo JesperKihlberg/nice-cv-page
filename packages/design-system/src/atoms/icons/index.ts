@@ -23,3 +23,5 @@ export { default as ViewHeadline } from "@material-ui/icons/ViewHeadline";
 export { default as ViewModule } from "@material-ui/icons/ViewModule";
 export { default as Balance } from "./Balance";
 export { default as Folders } from "./Folders";
+export { ArrowDropUp } from "@material-ui/icons";
+export { ArrowDropDown } from "@material-ui/icons";
