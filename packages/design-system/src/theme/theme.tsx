@@ -22,7 +22,7 @@ export const theme = createTheme({
       main: "#7F9C96",
     },
     secondary: {
-      main: "#AB2346",
+      main: "yellow",
     },
     divider: "#6EA130",
     background: {

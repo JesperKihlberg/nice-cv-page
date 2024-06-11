@@ -1,5 +1,5 @@
 import * as React from "react";
-import { withMuiCssBaseline } from "./decorators/withMuiCssBaseline";
+// import { withMuiCssBaseline } from "./decorators/withMuiCssBaseline";
 import ThemeProvider from "@jesper-kihlberg/design-system/src/theme/ThemeProvider";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -12,7 +12,7 @@ export const parameters = {
 };
 
 export const decorators = [
-  withMuiCssBaseline(),
+  // withMuiCssBaseline(),
   (Story) => (
     <ThemeProvider>
       <Story />
